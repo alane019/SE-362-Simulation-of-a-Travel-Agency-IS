@@ -7,7 +7,6 @@
                 margin: 0 auto;
                 margin-top: 140px;
                 margin-right: 200px;
-
             }
             form {
                 font-size: 30px;
