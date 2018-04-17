@@ -11,6 +11,11 @@ else {
     echo "Database connected<br>";
 }
 
+// if there is a mistake or any conflict we call go to the login form function
+function goToTheLoginForm() {
+    header("Location: http://localhost/php_kodlarım/SE-362-Simulation-of-a-Travel-Agency-IS/loginForm.php");
+    exit();
+}
 
 //Form infos
 $email = $password = "";
@@ -19,25 +24,26 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 if (empty($_POST["email"]) || empty($_POST["password"])) {
-    header("Location: http://localhost/php_kodlarım/SE-362-Simulation-of-a-Travel-Agency-IS/loginForm.php");
-    exit();
+   goToTheLoginForm();
 }
 
-$formParams = array($email,$password);
+$sql = "Select * from members where email='$email' and password='$password'";
 
-$stmt = $mysqli->prepare("Select * from Members where email=? and password=?");
-$stmt->bind_param("ss", $email, $password);
-$result = $stmt->execute();
+$result = $mysqli->query($sql);
 
-if($formParams == $result) {
-    echo "Welcome ".$_POST['email'];
+// if the query will return more than 0 rows we can say that this person is registered to the system so he/she can enter
+
+if ($result->num_rows>0) {
+    while($row = $result->fetch_assoc()) {
+        echo "Welcome ".$row['Name'];
+    }
 }
+
 else {
-    echo "Sıçış";
+    echo "Failed to enter to the system";
+    goToTheLoginForm();
 }
-
-
-$stmt->close();
+    
 $mysqli->close();
 
 ?>
