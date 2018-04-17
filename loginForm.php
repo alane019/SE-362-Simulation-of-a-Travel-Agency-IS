@@ -1,12 +1,13 @@
 <html>
     <head>
-        <title>System</title>
+        <title>Login</title>
         <style>
             #wrapper {
                 width: 50%;
                 margin: 0 auto;
                 margin-top: 140px;
                 margin-right: 200px;
+
             }
             form {
                 font-size: 30px;

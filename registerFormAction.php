@@ -31,6 +31,8 @@ $sql = "Insert into Members(name,email,number,password) values ('$name','$email'
 
 if ($mysqli->query($sql)===true) {
     echo "New record created successfully";
+    header("Location: http://localhost/php_kodlarım/SE-362-Simulation-of-a-Travel-Agency-IS/index.html");
+    exit();
 }
 else {
     echo "Error: " . $sql . "<br>". $mysqli->error;

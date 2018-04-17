@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>System</title>
+        <title>Register</title>
         <style>
             #wrapper {
                 width: 50%;
