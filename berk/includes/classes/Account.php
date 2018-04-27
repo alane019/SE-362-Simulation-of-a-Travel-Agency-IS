@@ -8,24 +8,23 @@
 			$this->errorArray = array(); // ERROR ARRAY 
 		}
 
-
-		public function login($un,$pw){
+		public function login($un,$pw) {
 			//ENCRIPTS THE PASSWORD
-      $pw= md5($pw);
+      		$pw = md5($pw);
 
 			// CONNECTION TO THE LOGIN
-      $query=mysqli_query($this->con,"SELECT * FROM users WHERE username='$un' AND password='$pw'");
+      		$query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$un' AND password='$pw'");
 
 			// IF ROW EXISTS MAKE CONNECTION
-      if(mysqli_num_rows($query) ==1){
-        return true;
+      		if(mysqli_num_rows($query) ==1){
+       			return true;
 			}
 			// ELSE ROW DOESN'T EXIST
-      else{
-        array_push($this->errorArray,Constants::$loginFailed);
-        return false;
-      }
-    }
+      		else {
+        		array_push($this->errorArray,Constants::$loginFailed);
+        		return false;
+      		}
+    	}
 
 		//REGISTER FUNCTION
 		public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {

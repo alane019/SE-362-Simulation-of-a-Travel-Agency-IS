@@ -17,7 +17,9 @@ else{
 </head>
 
 <body>
-	Hello!
+	Hello! <?php
+		echo $_GET['loginUsername'];
+	?>
 </body>
 
 </html>
