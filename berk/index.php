@@ -18,7 +18,7 @@ else{
 
 <body>
 	Hello! <?php
-		echo $_GET['loginUsername'];
+		
 	?>
 </body>
 

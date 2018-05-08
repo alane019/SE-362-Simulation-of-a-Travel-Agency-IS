@@ -10,13 +10,19 @@
 
 		public function login($un,$pw) {
 			//ENCRIPTS THE PASSWORD
-      		$pw = md5($pw);
-
+			$pw = md5($pw);
+				
 			// CONNECTION TO THE LOGIN
       		$query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$un' AND password='$pw'");
 
+			//Show the Name and Surname of the user
+			//while($row = $query->mysql_fetch_assoc()) {
+			//	echo "Welcome ".$row['firstName']." ".$row['lastName']; 
+			//}
+
+
 			// IF ROW EXISTS MAKE CONNECTION
-      		if(mysqli_num_rows($query) ==1){
+      		if(mysqli_num_rows($query) == 1){
        			return true;
 			}
 			// ELSE ROW DOESN'T EXIST
@@ -41,7 +47,6 @@
 			else {
 				return false;
 			}
-
 		}
 
 		// RETURNS TO THE ERROR THE COLUMN
