@@ -30,9 +30,9 @@
 		
 		<form action="index-handler.php" method="get">
 		<!-- City Combo Box -->
-			<p>Please select your city: </p>
-				<select name="city" id="city">
-					<option value="" name="citySelect">Select</option>
+		<p>Please select your city: </p>
+			<select name="city" id="city">
+				<option value="" name="citySelect">Select</option>
 					<?php 
 						$query = "Select * from cities";
 						$result = mysqli_query($con,$query) or die("Error in query");
@@ -45,46 +45,45 @@
 							}
 						}
 							?>	
-				</select>
-		<br><br>
+			</select>
+			<br><br>
 		<!-- Flight Combo Box -->
-			<p>Please select your flight company: </p>			
-				<select name="flight" id="flight">
-					<option value="" name="flightSelect">Select</option>
-						<?php 
-							$query = "Select * from flights";
-							$result = mysqli_query($con,$query) or die("Error in query");
-							if(mysqli_num_rows($result)>0) {
-								while($row = mysqli_fetch_row($result)) { 
-						?>
-									<option value=""><?php
-									echo "$row[1]";?> </option>
-								<?php	
-								}
+		<p>Please select your flight company: </p>			
+			<select name="flight" id="flight">
+				<option value="" name="flightSelect">Select</option>
+					<?php 
+						$query = "Select * from flights";
+						$result = mysqli_query($con,$query) or die("Error in query");
+						if(mysqli_num_rows($result)>0) {
+							while($row = mysqli_fetch_row($result)) { 
+					?>
+								<option value=""><?php
+								echo "$row[1]";?> </option>
+							<?php	
 							}
-								?>	
-				</select>
-		<br><br>
+						}
+							?>	
+			</select>
+			<br><br>
 		<!-- Hour Combo Box -->
-			<p>Please select from the available hours: </p>
-				<select name="hour" id="hour">
-					<option value="" name='hourSelect'>Select</option>
-						<?php 
-							$query = "Select * from hours";
-							$result = mysqli_query($con,$query) or die("Error in query");
-							if(mysqli_num_rows($result)>0) {
-								while($row = mysqli_fetch_row($result)) { 
-						?>
-									<option value=""><?php
-									echo "$row[1]";?> </option>
-								<?php	
-								}
+		<p>Please select from the available hours: </p>
+			<select name="hour" id="hour">
+				<option value="" name='hourSelect'>Select</option>
+					<?php 
+						$query = "Select * from hours";
+						$result = mysqli_query($con,$query) or die("Error in query");
+						if(mysqli_num_rows($result)>0) {
+							while($row = mysqli_fetch_row($result)) { 
+					?>
+							<option value=""><?php
+							echo "$row[1]";?> </option>
+							<?php	
 							}
-								?>	
-				</select>
-		<br><br>						
-				<button type="submit" value="send" name="indexSendButton"><p>Send</p></button>
+						}
+							?>	
+			</select>
+			<br><br>						
+			<button type="submit" value="send" name="indexSendButton"><p>Send</p></button>
 		</form>
 	</body>
-
 </html>
