@@ -1,25 +1,90 @@
 <?php
-include("includes/config.php");
+	include("includes/config.php");
+	include("includes/handlers/index-handler.php");
 
-if(isset($_SESSION['userLoggedIn'])){
-	$userLoggedIn=$_SESSION['userLoggedIn'];
-}
-else{
-	header("Location: register.php");
-}
-
+	if(isset($_SESSION['userLoggedIn'])){
+		$userLoggedIn=$_SESSION['userLoggedIn'];
+	}
+	else{
+		header("Location: register.php");
+	}
 ?>
 
-
 <html>
-<head>
-	<title>Hello World !!!</title>
-</head>
+	<head>
+		<title>Index</title>
+		<style type="text/css">
+		p {
+			display: inline;
+			font-size: 20px;
+		}
 
-<body>
-	Hello! <?php
+		button p {
+			font-size: 15px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<h1>Welcome to Travel Agency System</h1>
 		
-	?>
-</body>
+		<form action="index-handler.php" method="get">
+		<!-- City Combo Box -->
+			<p>Please select your city: </p>
+				<select name="city" id="city">
+					<option value="" name="citySelect">Select</option>
+					<?php 
+						$query = "Select * from cities";
+						$result = mysqli_query($con,$query) or die("Error in query");
+						if(mysqli_num_rows($result)>0) {
+							while($row = mysqli_fetch_row($result)) { 
+					?>
+								<option value=""><?php
+								echo "$row[1]";?> </option>
+							<?php	
+							}
+						}
+							?>	
+				</select>
+		<br><br>
+		<!-- Flight Combo Box -->
+			<p>Please select your flight company: </p>			
+				<select name="flight" id="flight">
+					<option value="" name="flightSelect">Select</option>
+						<?php 
+							$query = "Select * from flights";
+							$result = mysqli_query($con,$query) or die("Error in query");
+							if(mysqli_num_rows($result)>0) {
+								while($row = mysqli_fetch_row($result)) { 
+						?>
+									<option value=""><?php
+									echo "$row[1]";?> </option>
+								<?php	
+								}
+							}
+								?>	
+				</select>
+		<br><br>
+		<!-- Hour Combo Box -->
+			<p>Please select from the available hours: </p>
+				<select name="hour" id="hour">
+					<option value="" name='hourSelect'>Select</option>
+						<?php 
+							$query = "Select * from hours";
+							$result = mysqli_query($con,$query) or die("Error in query");
+							if(mysqli_num_rows($result)>0) {
+								while($row = mysqli_fetch_row($result)) { 
+						?>
+									<option value=""><?php
+									echo "$row[1]";?> </option>
+								<?php	
+								}
+							}
+								?>	
+				</select>
+		<br><br>						
+				<button type="submit" value="send" name="indexSendButton"><p>Send</p></button>
+		</form>
+	</body>
 
 </html>
