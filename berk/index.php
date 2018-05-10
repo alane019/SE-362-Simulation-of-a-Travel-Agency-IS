@@ -1,6 +1,5 @@
 <?php
 	include("includes/config.php");
-	include("includes/handlers/index-handler.php");
 
 	if(isset($_SESSION['userLoggedIn'])){
 		$userLoggedIn=$_SESSION['userLoggedIn'];
@@ -28,11 +27,11 @@
 	<body>
 		<h1>Welcome to Travel Agency System</h1>
 		
-		<form action="index-handler.php" method="get">
+		<form action="index.php" method="post">
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
 			<select name="city" id="city">
-				<option value="" name="citySelect">Select</option>
+				<option name="citySelect">Select</option>
 					<?php 
 						$query = "Select * from cities";
 						$result = mysqli_query($con,$query) or die("Error in query");
@@ -50,7 +49,7 @@
 		<!-- Flight Combo Box -->
 		<p>Please select your flight company: </p>			
 			<select name="flight" id="flight">
-				<option value="" name="flightSelect">Select</option>
+				<option name="flightSelect">Select</option>
 					<?php 
 						$query = "Select * from flights";
 						$result = mysqli_query($con,$query) or die("Error in query");
@@ -68,7 +67,7 @@
 		<!-- Hour Combo Box -->
 		<p>Please select from the available hours: </p>
 			<select name="hour" id="hour">
-				<option value="" name='hourSelect'>Select</option>
+				<option name='hourSelect'>Select</option>
 					<?php 
 						$query = "Select * from hours";
 						$result = mysqli_query($con,$query) or die("Error in query");
@@ -83,7 +82,11 @@
 							?>	
 			</select>
 			<br><br>						
-			<button type="submit" value="send" name="indexSendButton"><p>Send</p></button>
+			<button type="submit" name="indexSendButton"><p>Send</p></button>
 		</form>
+
+		<?php
+			include("includes/handlers/index-handler.php");
+		?>
 	</body>
 </html>

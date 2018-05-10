@@ -1,11 +1,12 @@
 <?php
 
-if (isset($_GET['indexSendButton'])) {
-    $city = $_GET['city'];
-    $flight = $_GET['flight'];
-    $hour = $_GET['hour'];
-
-    echo $city." ".$flight." ".$hour;
+if (isset($_POST['indexSendButton'])) {
+    $city = $_POST['city'];
+    $flight = $_POST['flight'];
+    $hour = $_POST['hour'];
+    
+    // Buradaki 3 value'yu yazdırmıyor.
+    echo "$flight";
     echo "efe";
 }
 
