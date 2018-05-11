@@ -9,7 +9,11 @@
 	}
 ?>
 
-<html>
+<?php
+	include("includes/handlers/index-handler.php");
+?>
+
+<!DOCTYPE html>
 	<head>
 		<title>Index</title>
 		<style type="text/css">
@@ -22,9 +26,11 @@
 			font-size: 15px;
 		}
 		</style>
+		
 	</head>
 
 	<body>
+		<div id="content">
 		<h1>Welcome to Travel Agency System</h1>
 		
 		<form action="index.php" method="post">
@@ -74,19 +80,18 @@
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-							<option value=""><?php
+							<option value="<?php //$row[1]; ?>"><?php
 							echo "$row[1]";?> </option>
 							<?php	
 							}
 						}
 							?>	
 			</select>
-			<br><br>						
-			<button type="submit" name="indexSendButton"><p>Send</p></button>
+			<br><br>				
+			<input type="submit" name="indexSendButton" value="Send">
 		</form>
 
-		<?php
-			include("includes/handlers/index-handler.php");
-		?>
+	</div>
+
 	</body>
 </html>
