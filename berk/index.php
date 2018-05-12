@@ -3,15 +3,11 @@
 
 	if(isset($_SESSION['userLoggedIn'])){
 		$userLoggedIn=$_SESSION['userLoggedIn'];
-	}
-	else{
-		header("Location: register.php");
-	}
+		include("includes/handlers/index-handler.php");}
 ?>
 
-<?php
-	include("includes/handlers/index-handler.php");
-?>
+
+	
 
 <!DOCTYPE html>
 	<head>
@@ -33,18 +29,20 @@
 		<div id="content">
 		<h1>Welcome to Travel Agency System</h1>
 		
-		<form action="index.php" method="post">
+		<form action="index.php" method="get">
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
 			<select name="city" id="city">
 				<option name="citySelect">Select</option>
-					<?php 
+					<?php
+						 $con = mysqli_connect("localhost","root","","test");
+						 $config['default']['port'] = 3308; // Berk : Commente al bunu
 						$query = "Select * from cities";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-								<option value=""><?php
+								<option><?php
 								echo "$row[1]";?> </option>
 							<?php	
 							}
@@ -57,12 +55,14 @@
 			<select name="flight" id="flight">
 				<option name="flightSelect">Select</option>
 					<?php 
+					$con = mysqli_connect("localhost","root","","test");
+					$config['default']['port'] = 3308; // Berk : Commente al bunu
 						$query = "Select * from flights";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-								<option value=""><?php
+								<option><?php
 								echo "$row[1]";?> </option>
 							<?php	
 							}
@@ -75,13 +75,15 @@
 			<select name="hour" id="hour">
 				<option name='hourSelect'>Select</option>
 					<?php 
+					$con = mysqli_connect("localhost","root","","test");
+					$config['default']['port'] = 3308; // Berk : Commente al bunu
 						$query = "Select * from hours";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-							<option value="<?php //$row[1]; ?>"><?php
-							echo "$row[1]";?> </option>
+							<option><?php
+								echo $row[1]; ?> </option>
 							<?php	
 							}
 						}
