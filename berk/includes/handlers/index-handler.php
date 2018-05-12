@@ -11,14 +11,14 @@ if(mysqli_connect_errno()){
 if (isset($_GET['indexSendButton'])) {
     $city = $_GET['city'];
     $flight = $_GET['flight'];
+    $day = $_GET['day'];
+    $month = $_GET['month'];
+    $year = $_GET['year'];
     $hour = $_GET['hour'];
     
-    $query = "Insert into infos(city,flight,hour) values('$city','$flight','$hour')";
-    //$queryDeneme = "Insert into infos(city,flight,hour) values('Izmir','THY','9:00')";
-    //$result = mysqli_query($con,$queryDeneme);
+    $query = "Insert into infos(city,flight,day,month,year,hour) values('$city','$flight','$day','$month','$year','$hour')";
     $result2 = mysqli_query($con,$query);
     // Buradaki 3 value'yu yazdırmıyor.
-    echo $city." ".$flight." ".$hour;
 }
 
 

@@ -33,17 +33,17 @@
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
 			<select name="city" id="city">
-				<option name="citySelect">Select</option>
+				<option name="citySelect" value=''>Select</option>
 					<?php
-						 $con = mysqli_connect("localhost","root","","test");
-						 $config['default']['port'] = 3308; // Berk : Commente al bunu
+						 
 						$query = "Select * from cities";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
 								<option><?php
-								echo "$row[1]";?> </option>
+								echo "$row[1]";
+								?> </option>
 							<?php	
 							}
 						}
@@ -53,37 +53,80 @@
 		<!-- Flight Combo Box -->
 		<p>Please select your flight company: </p>			
 			<select name="flight" id="flight">
-				<option name="flightSelect">Select</option>
+				<option name="flightSelect" value=''>Select</option>
 					<?php 
-					$con = mysqli_connect("localhost","root","","test");
-					$config['default']['port'] = 3308; // Berk : Commente al bunu
 						$query = "Select * from flights";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
 								<option><?php
-								echo "$row[1]";?> </option>
+								echo "$row[1]";
+								?> </option>
 							<?php	
 							}
 						}
 							?>	
 			</select>
 			<br><br>
+			
+			<!-- Day Combo Box -->
+			<p>Please select the date you want to go: </p>
+			<select name='day' id='day'>
+				<option name='daySelect' value=''>Select</option>
+				<?php
+					for($i=1;$i<=31;$i++) {
+				?>
+				<option><?php
+					echo $i;}
+				?> </option>
+				
+			</select>
+			
+			<!-- Month Combo Box -->
+			<select name='month' id='month'>
+				<option name="monthSelect" value="">Select</option>
+				<?php
+					$monthArray = array("January","February","March","April","May","June","July","August","September","October","November","December");
+					foreach($monthArray as $monthArray) {
+				?>
+				<option><?php
+					echo $monthArray;}
+				?>
+				</option>
+			</select>
+
+
+			<!-- Year Combo Box -->
+			
+			<select name="year" id="year">
+				<option name='yearSelect' value=''>Select</option>
+				<?php
+					$yearArray = array();
+					for ($i=date('Y'); $i<date('Y')+5; $i++) {
+					$yearArray[]=$i;
+				?>
+				<option><?php
+					echo $i;}	
+				?> </option>
+				
+			</select>
+			<br><br>
+
+
 		<!-- Hour Combo Box -->
 		<p>Please select from the available hours: </p>
 			<select name="hour" id="hour">
-				<option name='hourSelect'>Select</option>
+				<option name='hourSelect' value=''>Select</option>
 					<?php 
-					$con = mysqli_connect("localhost","root","","test");
-					$config['default']['port'] = 3308; // Berk : Commente al bunu
 						$query = "Select * from hours";
 						$result = mysqli_query($con,$query) or die("Error in query");
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
 							<option><?php
-								echo $row[1]; ?> </option>
+								echo $row[1]; 
+								?> </option>
 							<?php	
 							}
 						}
