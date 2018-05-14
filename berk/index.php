@@ -1,13 +1,12 @@
 <?php
 	include("includes/config.php");
 
+	//Moreover, you can handle the which hotel you are going to stay. It is going the relevant where you stay.
+
 	if(isset($_SESSION['userLoggedIn'])){
 		$userLoggedIn=$_SESSION['userLoggedIn'];
 		include("includes/handlers/index-handler.php");}
 ?>
-
-
-	
 
 <!DOCTYPE html>
 	<head>
@@ -21,35 +20,33 @@
 		button p {
 			font-size: 15px;
 		}
-		</style>
-		
+		</style>	
 	</head>
 
 	<body>
 		<div id="content">
 		<h1>Welcome to Travel Agency System</h1>
-		
 		<form action="index.php" method="get">
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
 			<select name="city" id="city">
 				<option name="citySelect" value=''>Select</option>
-					<?php
-						 
-						$query = "Select * from cities";
-						$result = mysqli_query($con,$query) or die("Error in query");
-						if(mysqli_num_rows($result)>0) {
-							while($row = mysqli_fetch_row($result)) { 
-					?>
-								<option><?php
-								echo "$row[1]";
-								?> </option>
-							<?php	
-							}
+				<?php 
+					$query = "Select * from cities";
+					$result = mysqli_query($con,$query) or die("Error in query");
+					if(mysqli_num_rows($result)>0) {
+						while($row = mysqli_fetch_row($result)) { 
+				?>
+				<option><?php
+				echo "$row[1]";
+				?> </option>
+				<?php	
 						}
-							?>	
+					}
+				?>	
 			</select>
 			<br><br>
+
 		<!-- Flight Combo Box -->
 		<p>Please select your flight company: </p>			
 			<select name="flight" id="flight">
@@ -60,13 +57,13 @@
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-								<option><?php
-								echo "$row[1]";
-								?> </option>
-							<?php	
+				<option><?php
+				echo "$row[1]";
+				?> </option>
+				<?php	
 							}
 						}
-							?>	
+				?>	
 			</select>
 			<br><br>
 			
@@ -80,7 +77,6 @@
 				<option><?php
 					echo $i;}
 				?> </option>
-				
 			</select>
 			
 			<!-- Month Combo Box -->
@@ -96,9 +92,7 @@
 				</option>
 			</select>
 
-
 			<!-- Year Combo Box -->
-			
 			<select name="year" id="year">
 				<option name='yearSelect' value=''>Select</option>
 				<?php
@@ -109,10 +103,8 @@
 				<option><?php
 					echo $i;}	
 				?> </option>
-				
 			</select>
 			<br><br>
-
 
 		<!-- Hour Combo Box -->
 		<p>Please select from the available hours: </p>
@@ -124,19 +116,47 @@
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_row($result)) { 
 					?>
-							<option><?php
-								echo $row[1]; 
-								?> </option>
-							<?php	
+				<option><?php
+				echo $row[1]; 
+				?> </option>
+					<?php	
 							}
 						}
-							?>	
+					?>	
 			</select>
 			<br><br>				
+		
+		<!-- Flight Seat Combo Box -->
+		<p>Please select your seat in the flight: </p>
+			<select name="seat" id="seat">
+				<option name='seatSelect' value=''>Select</option>
+				<?php 
+						$query = "Select * from seats";
+						$result = mysqli_query($con,$query) or die("Error in query");
+						if(mysqli_num_rows($result)>0) {
+							while($row = mysqli_fetch_row($result)) { 
+					?>
+				<option><?php
+				echo $row[1]; 
+				?> </option>
+				<?php	
+						}
+					}
+				?>	
+			</select>
+			<br><br>
+		
+		<!-- Rent A Car Combo Box -->
+		<p>Do you want to rent a car to travel in the city: </p>
+			<select name="car" id="car">
+				<option name='carSelect' value=''>Select</option>
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+			<br><br>
+
 			<input type="submit" name="indexSendButton" value="Send">
 		</form>
-
-	</div>
-
+		</div>
 	</body>
 </html>

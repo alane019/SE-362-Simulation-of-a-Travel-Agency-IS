@@ -1,8 +1,6 @@
 <?php
-$con = mysqli_connect("localhost","root","","test"); // En sondakini parametreyi
-//kendim için test dedim sen yine deneme yaparsın
-
-$config['default']['port'] = 3308; // Berk : Commente al bunu
+$con = mysqli_connect("localhost","root","","test");
+$config['default']['port'] = 3308;
 
 if(mysqli_connect_errno()){
   echo "Failed to connect" . mysqli_connect_errno();
@@ -15,10 +13,11 @@ if (isset($_GET['indexSendButton'])) {
     $month = $_GET['month'];
     $year = $_GET['year'];
     $hour = $_GET['hour'];
+    $seat = $_GET['seat'];
+    $car = $_GET['car'];
     
-    $query = "Insert into infos(city,flight,day,month,year,hour) values('$city','$flight','$day','$month','$year','$hour')";
+    $query = "Insert into infos(city,flight,day,month,year,hour,seat,car) values('$city','$flight','$day','$month','$year','$hour','$seat','$car')";
     $result2 = mysqli_query($con,$query);
-    // Buradaki 3 value'yu yazdırmıyor.
 }
 
 
