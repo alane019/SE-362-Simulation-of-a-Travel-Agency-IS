@@ -38,10 +38,9 @@ if(isset($_SESSION['userLoggedIn'])){
                     echo "<br>";    
                 }
             }
-
         ?>
         <br><br>
-        <form action="admin-index-handler.php" method="get">
+        <form action="admin-index.php" method="get">
             <p>Please give the id to delete the corresponding reservation:</p>
             <input type="text" name="delete" id="delete">
             <input type="submit" name="adminIndexSendButton" value="Send">

@@ -18,6 +18,7 @@ if (isset($_GET['indexSendButton'])) {
     
     $query = "Insert into infos(city,flight,day,month,year,hour,seat,car) values('$city','$flight','$day','$month','$year','$hour','$seat','$car')";
     $result2 = mysqli_query($con,$query);
+    echo "Your reservation has created.";
 }
 
 

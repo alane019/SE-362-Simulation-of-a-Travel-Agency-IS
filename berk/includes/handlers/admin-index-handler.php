@@ -10,8 +10,10 @@ if (isset($_GET['adminIndexSendButton'])) {
     
     $delete = $_GET['delete'];
 
-    $query = "Delete from infos(id,city,flight,day,month,year,hour,seat,car) where id = $delete";
-    $result2 = mysqli_query($con,$query);
+    $query = "Delete from infos where id = $delete";
+    $result = mysqli_query($con,$query);
+    echo "The reservation is deleted";
+    
 }
 
 
