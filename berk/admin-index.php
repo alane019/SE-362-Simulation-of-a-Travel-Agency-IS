@@ -1,11 +1,6 @@
 <?php
 include("includes/config.php");
-if(isset($_SESSION['userLoggedIn'])){
-    $userLoggedIn=$_SESSION['userLoggedIn'];
-    include("includes/handlers/admin-index-handler.php");
-    // Şimdilik userLoggedIn ama adminLoggedIn olacak
-}
-
+include("includes/handlers/admin-index-handler.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +21,7 @@ if(isset($_SESSION['userLoggedIn'])){
     <body>
         <h1>Admin Panel</h1>
         <p>All Reservations: </p><br>
+        
         <?php
             // Gathering the reservations from db
             $query = "Select * from infos";

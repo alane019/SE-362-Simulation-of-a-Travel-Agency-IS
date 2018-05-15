@@ -8,6 +8,20 @@
 			$this->errorArray = array(); // ERROR ARRAY 
 		}
 
+		public function adminLogin($un,$pw){
+			$query=mysqli_query($this->con,"SELECT * FROM admin WHERE username='$un' AND password='$pw'");
+	  
+			if(mysqli_num_rows($query)==1){
+			  return true;
+			}
+			else{
+			  return false;
+			}
+			
+	  
+		  }
+
+
 		public function login($un,$pw) {
 			//ENCRIPTS THE PASSWORD
 			$pw = md5($pw);

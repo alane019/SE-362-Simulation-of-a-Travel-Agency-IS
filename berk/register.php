@@ -23,6 +23,7 @@
 </head>
 <body>
 
+	<a href="admin-login.php">Admin Login</a>
     <div id="inputContainer">
 
         <!--LOGIN FIELD-->
@@ -98,6 +99,23 @@
 			</p>
             
             <button type="submit" name="registerButton">SIGN UP</button>
+        </form>
+
+		<form class="contact-form" action="contactform.php" method="post">
+            <fieldset>
+            <legend>Contact Form</legend>
+            
+                <input type="text" name="name" placeholder="Full name"><br/>
+                <br/>
+                <input type="text" name="mail" placeholder="Your e-mail"><br/>
+                <br/>
+                <input type="text" name="subject" placeholder="Subject"><br/>
+                <br/>
+                <textarea name="message" placeholder="Message"></textarea><br/>
+                <br/>
+                <button type="submit" name="submit">SEND MAIL</button>
+            </fieldset>
+        
         </form>
 
     </div>

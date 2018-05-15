@@ -26,7 +26,7 @@
 	<body>
 		<div id="content">
 		<h1>Welcome to Travel Agency System</h1>
-		<form action="index.php" method="get">
+		<form action="index.php" method="post">
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
 			<select name="city" id="city">
@@ -158,5 +158,6 @@
 			<input type="submit" name="indexSendButton" value="Send">
 		</form>
 		</div>
+		<a href="">Log Out</a>
 	</body>
 </html>
