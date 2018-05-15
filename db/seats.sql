@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Nis 2018, 10:28:43
+-- Üretim Zamanı: 15 May 2018, 20:14:12
 -- Sunucu sürümü: 10.1.28-MariaDB
 -- PHP Sürümü: 7.1.11
 
@@ -25,44 +25,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `members`
+-- Tablo için tablo yapısı `seats`
 --
 
-CREATE TABLE `members` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(225) NOT NULL,
-  `Email` varchar(225) NOT NULL,
-  `Number` varchar(225) NOT NULL,
-  `Password` varchar(225) NOT NULL
+CREATE TABLE `seats` (
+  `id` int(11) NOT NULL,
+  `seat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tablo döküm verisi `members`
+-- Tablo döküm verisi `seats`
 --
 
-INSERT INTO `members` (`Id`, `Name`, `Email`, `Number`, `Password`) VALUES
-(1, 'Ersoy Efe Uruk', 'efeuruk1@gmail.com', '05309729757', 'efe'),
-(3, 'Ipek', 'ipektekin@gmail.com', '151515615156', '5555');
+INSERT INTO `seats` (`id`, `seat`) VALUES
+(1, 'A1'),
+(2, 'A2'),
+(3, 'A3'),
+(4, 'B1'),
+(5, 'B2'),
+(6, 'B3'),
+(7, 'C1'),
+(8, 'C2'),
+(9, 'C3');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
 
 --
--- Tablo için indeksler `members`
+-- Tablo için indeksler `seats`
 --
-ALTER TABLE `members`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `seats`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `members`
+-- Tablo için AUTO_INCREMENT değeri `seats`
 --
-ALTER TABLE `members`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `seats`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

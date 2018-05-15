@@ -1,4 +1,7 @@
 <?php
+
+  // Admin's login page's server side
+
   if(isset($_POST['loginButton'])){
     
     $username= $_POST['loginUsername'];

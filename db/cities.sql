@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 10 May 2018, 18:31:33
+-- Üretim Zamanı: 15 May 2018, 20:13:02
 -- Sunucu sürümü: 10.1.28-MariaDB
 -- PHP Sürümü: 7.1.11
 
@@ -25,37 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `hours`
+-- Tablo için tablo yapısı `cities`
 --
 
-CREATE TABLE `hours` (
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
-  `hours` varchar(100) NOT NULL
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tablo döküm verisi `hours`
+-- Tablo döküm verisi `cities`
 --
 
-INSERT INTO `hours` (`id`, `hours`) VALUES
-(1, '9:00'),
-(2, '10:00'),
-(3, '11:00'),
-(4, '12:00'),
-(5, '13:00'),
-(6, '14:00'),
-(7, '20:00'),
-(8, '22:00'),
-(9, '00:00');
+INSERT INTO `cities` (`id`, `name`) VALUES
+(1, 'Izmir'),
+(2, 'Antalya'),
+(3, 'Aydin'),
+(4, 'Mugla'),
+(5, 'Denizli'),
+(6, 'Paris'),
+(7, 'Barcelona');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
 
 --
--- Tablo için indeksler `hours`
+-- Tablo için indeksler `cities`
 --
-ALTER TABLE `hours`
+ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -63,10 +61,10 @@ ALTER TABLE `hours`
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `hours`
+-- Tablo için AUTO_INCREMENT değeri `cities`
 --
-ALTER TABLE `hours`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

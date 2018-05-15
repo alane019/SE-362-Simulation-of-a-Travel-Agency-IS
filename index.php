@@ -1,7 +1,7 @@
 <?php
-	include("includes/config.php");
+	// This is the customer's index page
 
-	//Moreover, you can handle the which hotel you are going to stay. It is going the relevant where you stay.
+	include("includes/config.php");
 
 	if(isset($_SESSION['userLoggedIn'])){
 		$userLoggedIn=$_SESSION['userLoggedIn'];
@@ -29,7 +29,7 @@
 		<form action="index.php" method="post">
 		<!-- City Combo Box -->
 		<p>Please select your city: </p>
-			<select name="city" id="city">
+			<select name="city" id="city" required>
 				<option name="citySelect" value=''>Select</option>
 				<?php 
 					$query = "Select * from cities";
@@ -49,7 +49,7 @@
 
 		<!-- Flight Combo Box -->
 		<p>Please select your flight company: </p>			
-			<select name="flight" id="flight">
+			<select name="flight" id="flight" required>
 				<option name="flightSelect" value=''>Select</option>
 					<?php 
 						$query = "Select * from flights";
@@ -69,7 +69,7 @@
 			
 			<!-- Day Combo Box -->
 			<p>Please select the date you want to go: </p>
-			<select name='day' id='day'>
+			<select name='day' id='day' required>
 				<option name='daySelect' value=''>Select</option>
 				<?php
 					for($i=1;$i<=31;$i++) {
@@ -80,7 +80,7 @@
 			</select>
 			
 			<!-- Month Combo Box -->
-			<select name='month' id='month'>
+			<select name='month' id='month' required>
 				<option name="monthSelect" value="">Select</option>
 				<?php
 					$monthArray = array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -93,7 +93,7 @@
 			</select>
 
 			<!-- Year Combo Box -->
-			<select name="year" id="year">
+			<select name="year" id="year" required>
 				<option name='yearSelect' value=''>Select</option>
 				<?php
 					$yearArray = array();
@@ -108,7 +108,7 @@
 
 		<!-- Hour Combo Box -->
 		<p>Please select from the available hours: </p>
-			<select name="hour" id="hour">
+			<select name="hour" id="hour" required>
 				<option name='hourSelect' value=''>Select</option>
 					<?php 
 						$query = "Select * from hours";
@@ -128,7 +128,7 @@
 		
 		<!-- Flight Seat Combo Box -->
 		<p>Please select your seat in the flight: </p>
-			<select name="seat" id="seat">
+			<select name="seat" id="seat" required>
 				<option name='seatSelect' value=''>Select</option>
 				<?php 
 						$query = "Select * from seats";
@@ -148,7 +148,7 @@
 		
 		<!-- Rent A Car Combo Box -->
 		<p>Do you want to rent a car to travel in the city: </p>
-			<select name="car" id="car">
+			<select name="car" id="car" required>
 				<option name='carSelect' value=''>Select</option>
 				<option>Yes</option>
 				<option>No</option>
@@ -158,6 +158,6 @@
 			<input type="submit" name="indexSendButton" value="Send">
 		</form>
 		</div>
-		<a href="">Log Out</a>
+		<a href="register.php">Log Out</a>
 	</body>
 </html>

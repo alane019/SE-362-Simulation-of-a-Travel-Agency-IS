@@ -1,4 +1,7 @@
 <?php
+
+// This script is the server side for the mail sending
+
 if(isset($_POST['submit'])){
   $name = $_POST['name'];
   $subject = $_POST['subject'];

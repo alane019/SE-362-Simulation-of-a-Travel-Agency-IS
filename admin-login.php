@@ -1,5 +1,7 @@
 <?php
 
+// This is the admin's login page's front-end side
+
 include("includes/config.php");
 
 include("includes/classes/Account.php");
@@ -24,7 +26,7 @@ include("includes/handlers/admin-login-handler.php");
         <input id="loginPassword" name="loginPassword" type="password" placeholder="Your password" required>
       </p>
 
-      <button type="submit" name="loginButton">LOG IN</button>
+      <button type="submit" name="loginButton">LOG IN</button><br><br>
       <a href="register.php">Main Page</a>
     </form>
 

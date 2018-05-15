@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 10 May 2018, 18:22:08
+-- Üretim Zamanı: 15 May 2018, 20:13:18
 -- Sunucu sürümü: 10.1.28-MariaDB
 -- PHP Sürümü: 7.1.11
 
@@ -25,30 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `cities`
+-- Tablo için tablo yapısı `flights`
 --
 
-CREATE TABLE `cities` (
+CREATE TABLE `flights` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tablo döküm verisi `cities`
+-- Tablo döküm verisi `flights`
 --
 
-INSERT INTO `cities` (`id`, `name`) VALUES
-(1, 'Izmir'),
-(2, 'Antalya');
+INSERT INTO `flights` (`id`, `name`) VALUES
+(1, 'THY'),
+(2, 'Pegasus'),
+(3, 'Atlas Jet'),
+(4, 'Onur Air'),
+(5, 'Sun Express'),
+(6, 'Lufthansa');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
 
 --
--- Tablo için indeksler `cities`
+-- Tablo için indeksler `flights`
 --
-ALTER TABLE `cities`
+ALTER TABLE `flights`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +60,10 @@ ALTER TABLE `cities`
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `cities`
+-- Tablo için AUTO_INCREMENT değeri `flights`
 --
-ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `flights`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 11 May 2018, 11:41:24
+-- Üretim Zamanı: 15 May 2018, 20:12:25
 -- Sunucu sürümü: 10.1.28-MariaDB
 -- PHP Sürümü: 7.1.11
 
@@ -25,45 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `infos`
+-- Tablo için tablo yapısı `admin`
 --
 
-CREATE TABLE `infos` (
-  `id` int(11) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `flight` varchar(100) NOT NULL,
-  `hour` varchar(100) NOT NULL
+CREATE TABLE `admin` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tablo döküm verisi `infos`
+-- Tablo döküm verisi `admin`
 --
 
-INSERT INTO `infos` (`id`, `city`, `flight`, `hour`) VALUES
-(1, 'Izmir', 'THY', '9:00'),
-(5, 'Izmir', 'THY', '9:00'),
-(6, 'Izmir', 'THY', '9:00'),
-(7, 'Izmir', 'THY', '9:00');
-
---
--- Dökümü yapılmış tablolar için indeksler
---
-
---
--- Tablo için indeksler `infos`
---
-ALTER TABLE `infos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
---
-
---
--- Tablo için AUTO_INCREMENT değeri `infos`
---
-ALTER TABLE `infos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', 'admin'),
+('admin1', 'admin1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

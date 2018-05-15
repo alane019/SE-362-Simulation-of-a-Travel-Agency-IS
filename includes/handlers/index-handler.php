@@ -1,4 +1,7 @@
 <?php
+
+// This handler helps to the index to fill its combo boxes dynamically
+
 $con = mysqli_connect("localhost","root","","test");
 $config['default']['port'] = 3308;
 
