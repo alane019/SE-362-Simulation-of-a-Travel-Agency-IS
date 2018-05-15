@@ -23,7 +23,7 @@
 
 <html>
 <head>
-	<title>Hello World</title>
+	<title>Register Page</title>
 	<link rel="stylesheet" href="assets/css/register.css">
 </head>
 <body>
@@ -106,17 +106,18 @@
             <button type="submit" name="registerButton">SIGN UP</button>
         </form>
 
+		<!-- Contact Form -->
 		<form class="contact-form" action="contactform.php" method="post">
             <fieldset>
             <legend>Contact Form</legend>
             
-                <input type="text" name="name" placeholder="Full name"><br/>
+                <input type="text" name="name" placeholder="Full name" required><br/>
                 <br/>
-                <input type="text" name="mail" placeholder="Your e-mail"><br/>
+                <input type="text" name="mail" placeholder="Your e-mail" required><br/>
                 <br/>
-                <input type="text" name="subject" placeholder="Subject"><br/>
+                <input type="text" name="subject" placeholder="Subject" required><br/>
                 <br/>
-                <textarea name="message" placeholder="Message"></textarea><br/>
+                <textarea name="message" placeholder="Message" required></textarea><br/>
                 <br/>
                 <button type="submit" name="submit">SEND MAIL</button>
             </fieldset>

@@ -26,19 +26,22 @@ if (isset($_GET['showReservations'])) {
   }
 }
 
-
 // Deletion of reservations
 if (isset($_GET['adminIndexDeleteSendButton'])) {
     
     $delete = $_GET['delete'];
 
-    $query = "Delete from infos where id = $delete";
-    $result = mysqli_query($con,$query);
-    if ($result == true)
-      echo "The reservation is deleted";
-    else
+    // Checks if the id is really in the table
+    $queryCheck = "Select * from infos where id = $delete";
+    $check = mysqli_query($con,$queryCheck);
+    if (mysqli_num_rows($check) < 1) {
       echo "Please enter a valid id";
-    
+    }
+    else {
+      $query = "Delete from infos where id = $delete";
+      $result = mysqli_query($con,$query);
+      echo "The reservation is deleted";
+    }
 }
 
 // Deletion of user
@@ -47,11 +50,20 @@ if (isset($_GET['adminIndexDeleteUserSendButton'])) {
   $lastName = $_GET['deleteLastName'];
   $userName = $_SESSION['username'];
 
-  $query = "Delete from users where firstName = '$firstName' and lastName = '$lastName'";
-  $result = mysqli_query($con,$query);
-  $query2 = "Delete from infos where username = '$userName'";
-  $result2 = mysqli_query($con,$query2);
-  echo "The user is deleted with all corresponding reservations.";
+  // Checks if the firstname and lastname are matching with the table
+  $queryCheck = "Select * from users where username = '$firstName' and lastname = '$lastName'";
+  $check = mysqli_query($con,$queryCheck);
+  if (mysqli_num_rows($check) < 1) {
+    echo "Please enter a valid firstname and lastname";
+  }
+  else {
+    $query = "Delete from users where firstName = '$firstName' and lastName = '$lastName'";
+    $result = mysqli_query($con,$query);
+    $query2 = "Delete from infos where username = '$userName'";
+    $result2 = mysqli_query($con,$query2);
+    echo "The user is deleted with all corresponding reservations.";
+  }
+
 }
 
 
